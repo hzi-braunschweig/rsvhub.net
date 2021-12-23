@@ -18,4 +18,4 @@ This is a test menu item showcasing the fetchapi shortcode:
 
 <!-- Api Docs: https://www.ncbi.nlm.nih.gov/books/NBK25499/  -->
 
-{{< fetchapi searchterm="influenza" articlesretrieved="2" mindate="2021/11" maxdate="2021/11" >}}
+{{< fetchapi searchterm="Respiratory+syncytial+virus+Covid" articlesretrieved="2" mindate="2021/11" maxdate="2021/11" >}}
