@@ -106,10 +106,10 @@ You can find more information on using this API over on the [PubMed documentatio
 
 ## Getting things set up locally
 ### Get the repo locally
-1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/influenza.net.git`
+1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/rsvhub.net.git`
 2. If you're not a member of the organisation, fork the repo, then 
-    - `git clone --recurse-submodules git@github.com:<your account>/influenza.net.git`
-    - `git remote add upstream https://github.com/hzi-braunschweig/influenza.net.git`
+    - `git clone --recurse-submodules git@github.com:<your account>/rsvhub.net.git`
+    - `git remote add upstream https://github.com/hzi-braunschweig/rsvhub.net.git`
 
 
 
