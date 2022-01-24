@@ -161,13 +161,48 @@ If you are venturing further into Hugo and making templating changes, the [templ
 "Contribute", "About" and "Test" are all [menu items](https://gohugo.io/content-management/menus/). From the front matter you can see that they are added to the top nav via [Hugo's menu system](https://gohugo.io/content-management/menus/#readout).
 
 ### Netlify
+
 The website is hosted on [Netlify](https://netlify.com).
 
+The CMS works using a principle called [Open Authoring](https://www.netlifycms.org/docs/open-authoring/). You can see this configured in the CMS configuration [here](https://github.com/hzi-braunschweig/influenzahub.net/blob/0903702fb23c7ba675ae74bd91f02430c49212c8/static/admin/config.yml#L5).
+
 #### Automated deployments
+
 The website is automatically updated everytime there is a change to the master branch in GitHub. Additionally, any pull requests or branches will also have preview URLs built. The preview links for Pull Requests will be included in the Pull Request interface on GitHub.
 
 #### Authentication
+
 The Netlify hosting has Visitor access > OAuth authentication enabled with a [GitHub OAuth application](https://developer.github.com/apps/building-oauth-apps/) - this is important for the Netlify CMS to support open authoring.
+
+Below are the steps to configure authentication:
+
+#### Enable OAuth for a Netlify Site
+
+There are two steps to enable OAuth for the Netlify site.
+
+1. [Register a new OAuth application with GitHub](#register-a-new-application)
+2. [Configure credentials in Netlify](#netlify-credentials-settings)
+
+#### Register a new application.
+
+1. In Github, click here to access [developer settings for OAuth Apps](https://github.com/settings/developers) and click the button to register a new application.
+
+2. For the **Authorization callback URL**, enter `https://api.netlify.com/auth/done`. Populate the other fields appropriately.
+
+3. On your new application's GitHub overview page, make note of the **Client ID**.
+
+4. Generate a **Client Secret** and make note of it for later. **_You can't access this secret again_**.
+
+#### Netlify Credentials settings
+
+When you complete application registration with GitHub, you need to add the Client ID and Client Secret to your Netlify site:
+
+1. Go to Site settings > Access control > OAuth.
+2. Under Authentication Providers, select Install Provider.
+3. Select GitHub and enter the Client ID and Client Secret from earlier, then save.
+
+When you've configured GitHub as an authentication provider, you can use it to obtain an access token in your application. Check out demos to do this [here](https://github.com/netlify/netlify-auth-demo).
+
 
 #### SSL
 Netlify can support custom SSL certificates to be associated with the intended domain of `serohub.helmholtz-hzi.de`  The SSL can either be a letsencrypt managed certificate or it can support [a wildcard domain SSL](https://docs.netlify.com/domains-https/https-ssl/#custom-certificates). Note that the custom certificate route requires the SSL certificate to be updated manually, whenever a new one is issued.
