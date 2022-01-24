@@ -42,6 +42,27 @@ Shortcodes are small snippets of HTML that can be added into a markdown content 
 
 When you are working on content for the site, you will be working almost exclusively with markdown files (.md). [Markdown is easy to learn](https://www.markdownguide.org/) and very well supported. **Just remember, if there is content you want to change on the body of a page, there's a markdown file for it**. There are some changes on the site you will need to make outside of markdown, which is discussed in the following section.
 
+## Setting up your machine to make changes to the website
+
+Before following the steps below, please ensure that the changes you make can't be done via [Netlify CMS](#netlify-cms). The checklist below allows you to set up your machine to make more advanced changes to the site.
+
+You need to be a member of the [hzi-braunschweig organisation](https://github.com/hzi-braunschweig) on GitHub to make changes to the site.
+
+Here's our recommended checklist:
+
+- [ ] Ensure you're a hzi-braunschweig GitHub member.
+- [ ] Install Git Bash, [instructions for Windows here](https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/).
+- [ ] Install Visual Studio Code [here](https://code.visualstudio.com/download).
+- [ ] As aforementioned, install Hugo. On Windows we recommend doing this using [Chocolatey](https://chocolatey.org/install) as the Hugo docs suggest.
+- [ ] Ensure your terminal is navigated to the folder where you would like your local version of the codebase.
+- [ ] Proceed to [getting things set up locally](#getting-things-set-up-locally) to perform the Git clone and run Hugo webserver.
+- [ ] Attempting a Git clone may prompt you for an SSH key, follow this [video guide](https://www.youtube.com/watch?v=WgZIv5HI44o) carefully to set up an SSH key. This validates that your machine is an authorised member of the organisation. Ensure that you generate your SSH key passphrase securely and store it in a safe place.
+- [ ] Once authorised, you will need an elementary knowledge of Git to commit and push your changes to the local repository. There are many [resources online to learn from](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/).
+
+Optional steps:
+
+- [ ] Learn the [basics of bash terminal](https://towardsdatascience.com/basics-of-bash-for-beginners-92e53a4c117a) (you only need to know how to use the terminal to move between file directories).
+- [ ] Improve your Visual Studio Code workflow by learning how to use [shortcuts to navigate between files](https://code.visualstudio.com/docs/editor/editingevolved#_quick-file-navigation) and learning how to use the [search function](https://code.visualstudio.com/docs/editor/codebasics#_search-across-files) to locate the field you want to change across files.
 
 ## Making changes to the website
 For changes to the website, there are a few key areas:
@@ -73,8 +94,8 @@ The default site (en):
 
 The language-specific sites (e.g. de):
 
-- The majority of scientific papers are written in English language. 
-- In `config.toml` each language (except `en`) has an additional content folder defined, e.g. `contentDir="content_de"` for the German site. 
+- The majority of scientific papers are written in English language.
+- In `config.toml` each language (except `en`) has an additional content folder defined, e.g. `contentDir="content_de"` for the German site.
 - In order to display English papers, we will copy/mirror whole folders to the language-specific directory, e.g. `cp content/publication/biorxiv content_de/publication/biorxiv`
 
 
@@ -107,7 +128,7 @@ You can find more information on using this API over on the [PubMed documentatio
 ## Getting things set up locally
 ### Get the repo locally
 1. If you're a member of the organisation, `git clone --recurse-submodules git@github.com:hzi-braunschweig/rsvhub.net.git`
-2. If you're not a member of the organisation, fork the repo, then 
+2. If you're not a member of the organisation, fork the repo, then
     - `git clone --recurse-submodules git@github.com:<your account>/rsvhub.net.git`
     - `git remote add upstream https://github.com/hzi-braunschweig/rsvhub.net.git`
 
@@ -155,7 +176,7 @@ Netlify can support custom SSL certificates to be associated with the intended d
 The user interface for adding and managing studies is built using the [Netlify CMS](https://www.netlifycms.org/).
 
 #### How it works
-The CMS is used to provide an interface to GitHub and Git activities behind the scenes. 
+The CMS is used to provide an interface to GitHub and Git activities behind the scenes.
 You can login with your Github account at [serohub.netlify.app/admin](https://serohub.netlify.app/admin).
 Please note,
 
@@ -170,13 +191,13 @@ Under participating studies and partners, the media is being imported through Ne
 
 ## Making the site citeable
 
-To make open-source code citeable we can assign it a DOI. This is essentially a way of presenting the entire repo as a scholarly work available for citation. Our recommended way to do this is to link the GitHub repository to Zenodo. 
+To make open-source code citeable we can assign it a DOI. This is essentially a way of presenting the entire repo as a scholarly work available for citation. Our recommended way to do this is to link the GitHub repository to Zenodo.
 
 A [video guide](https://www.youtube.com/watch?v=gp3D4mf6MHQ) on this process or carry on reading:
 
-- Visit https://zenodo.org/ and select the Log In with Github option. 
+- Visit https://zenodo.org/ and select the Log In with Github option.
 - Enter Github credentials and authorize Zenodo to access repositories.
-- Once in the account, click on the dropdown menu next to the account name on the top-right and select 'GitHub'. 
+- Once in the account, click on the dropdown menu next to the account name on the top-right and select 'GitHub'.
 - Make sure the repo you want to make citeable is public and flip the switch to make it a Zenodo-enabled repo. This means you allow Zenodo to create a DOI for this repo.
 - This is a good time to ensure your repo includes an appropriate license so that others know your sharing conditions.
 - On Github, [create a release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) for the repo with a tag version, target branch, release title and release description.
@@ -199,4 +220,3 @@ A [video guide](https://www.youtube.com/watch?v=gp3D4mf6MHQ) on this process or 
     + [Netlify docs](https://docs.netlify.com/#get-started)
 - Blogdown
     + [ROpenSci notes](https://blogguide.ropensci.org/technical.html)
-
